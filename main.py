@@ -54,12 +54,13 @@ def cria_matriz():
       matriz[5][4]=35
       matriz[5][5]=36
     else:
-      while verifica != 1:
-          tam = int(input('\n\n\nInforme a Dimensao da Matriz ente 2 e 10:  '))
-          if tam >= 2 and tam <=10:
-              verifica=1
+      while True:
+          tam = int(input('\n\nInforme a Dimensao da Matriz ente 2 e 10:  '))
+
+          if tam > 1 and tam < 11:
+              break
           else:
-              print('\n\nOpção inválida. Por favor, escolha uma ordem para sua matriz, entre 2 e 10.')
+              print('\nOpção inválida. Por favor, escolha uma ordem para sua matriz, entre 2 e 10.')
               verifica=-1
 
       reinicia() 
@@ -67,9 +68,10 @@ def cria_matriz():
       matriz = zeros((tam,tam))
       linha = 0
       
+      print(f'Monte sua matriz {tam}x{tam}')
       while linha < tam:  
           for coluna in range(tam): 
-              num = (input(f'\nEntre o valor da [{linha+1}][{coluna+1}] da matriz:  '))
+              num = int((input(f'\nEntre o valor da [{linha+1}][{coluna+1}] da matriz:  ')))
               matriz[linha][coluna]  = int(num)
 
           linha += 1
@@ -108,6 +110,7 @@ def metodo_potencia(matriz):
 
     # Iterações do método
     while True:
+      i += 1
       cc1 = av.copy()
       matriz_iteracao = matriz * matriz_iteracao
       av = maior_elemento(matriz_iteracao)
@@ -117,7 +120,6 @@ def metodo_potencia(matriz):
       if check_margem(cc1, cc2) or i > 999:
         break
  
-      i += 1
     
     return av, i
 
