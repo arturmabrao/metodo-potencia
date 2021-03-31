@@ -137,7 +137,7 @@ def main():
     else:
         matriz = matrix(cria_matriz()) 
 
-        print(f'\n\n{"-"*25}  Matriz de Escolhida {"-"*25}\n\n')
+        print(f'\n\n{"-"*25} Matriz de Escolhida {"-"*25}\n\n')
         print(matriz)
         autovalor, iteracoes = metodo_potencia(matriz)
         if iteracoes == 1000:
