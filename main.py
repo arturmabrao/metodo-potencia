@@ -100,7 +100,6 @@ def check_margem(c1, c2):
     
 #  Método de potência
 def metodo_potencia(matriz):
-
     colunas = len(matriz)
     matriz_iteracao = ones((colunas, 1))
     cc1 = [0]
@@ -109,18 +108,18 @@ def metodo_potencia(matriz):
     i = 0
 
     # Iterações do método
-    while True:
+    while i < 1000:
       i += 1
       cc1 = av.copy()
       matriz_iteracao = matriz * matriz_iteracao
       av = maior_elemento(matriz_iteracao)
       cc2 = av.copy()
       matriz_iteracao = matriz_iteracao*(1/av)
+
       # Chama verificação de parada das iterações
-      if check_margem(cc1, cc2) or i > 999:
+      if check_margem(cc1, cc2):
         break
  
-    
     return av, i
 
 
